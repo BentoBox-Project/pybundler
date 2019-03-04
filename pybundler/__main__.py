@@ -17,7 +17,7 @@ import os
 import click
 from colored import fg, attr
 
-from py_bundler import cli
+from pybundler import cli
 
 
 @click.command()
@@ -94,7 +94,6 @@ def main(install_all, install, uninstall, dev, lock, shell,
         cli.release()
 
     if package:
-        print(os.getcwd())
         pkg_name = click.prompt(enter_name())
         path = click.prompt(enter_path(), default='')
         license_file = click.confirm(license_option())

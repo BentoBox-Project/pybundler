@@ -1,4 +1,4 @@
-# Py Bundler
+# Pybundler
 > Manages a ptyhon applicatons or packages.
 
 Creates a basic template of python package and manages python apps or packages.
@@ -12,14 +12,14 @@ OS X & Linux:
 From PYPI
 
 ```sh
-$ pip3 install py-bundler
+$ pip3 install pybundler
 ```
 
 from the source
 
 ```sh
-$ git clone https://github.com/dany2691/py-bundler.git
-$ cd py-bundler
+$ git clone https://github.com/dany2691/pybundler.git
+$ cd pybundler
 $ python3 setup.py install
 ```
 
@@ -28,7 +28,7 @@ $ python3 setup.py install
 Open a terminal and type:
 
 ```sh
-$ py-bundler --help
+$ pybundler --help
 ```
 
 And it'll display:
@@ -52,7 +52,7 @@ Options:
 The purpose of this tool is offer a similar experience with ruby's bundler. So you can create a new package from scratch.
 
 ```sh
-$ py-bundler --package
+$ pybundler --package
 ```
 Then, a list of question will prompted in order to customize the new package:
 
@@ -68,31 +68,31 @@ Do you want to install pytest?  [y/N]: y
 So you can install dependencies like pipenv in a virtual enviroment:
 
 ```sh
-$ py-nundler --install numpy==1.16.2
+$ pybundler --install numpy==1.16.2
 ```
 
 You can install dev dependencies, as shown below:
 
 ```sh
-$ py-nundler --install pytest --dev
+$ pybundler --install pytest --dev
 ```
 
 So, like pipenv, is possible to install all dependencies from Pipfile
 
 ```sh
-$ py-nundler --install-all
+$ pybundler --install-all
 ```
 
 The following option generates or updates Pipfile.lock:
 
 ```sh
-$ py-nundler --lock
+$ pybundler --lock
 ```
 
 The following option spawns a shell within the virtualenv:
 
 ```sh
-$ py-nundler --shell
+$ pybundler --shell
 ```
 
 In order to automate the publishing of the new package, we provide the next options for building and uploading the package to pypi and the remote git service.
@@ -100,19 +100,19 @@ In order to automate the publishing of the new package, we provide the next opti
 This is a replacement for **python setup.py sdist bdist_wheel**
 
 ```sh
-$ py-nundler --build-wheel
+$ pybundler --build-wheel
 ```
 
 The next option, uploads the package to test.pypi.org:
 
 ```sh
-$ py-nundler --test-release
+$ pybundler --test-release
 ```
 
 And last but not least, this one, uploads the package to pypi.org and pushes it to the git remote:
 
 ```sh
-$ py-nundler --release
+$ pybundler --release
 ```
 
 # Development setup
@@ -121,17 +121,29 @@ This project uses _pipenv_ for dependecy resolution. It's a kind of mix between
 pip and virtualenv. Follow the next instructions to setup the development enviroment.
 
 ```sh
-$ git clone https://github.com/dany2691/py-bundler.git
-$ cd py-bundler
+$ git clone https://github.com/dany2691/pybundler.git
+$ cd pybundler
 $ pipenv shell
 $ pipenv install -e .
 ```
 
-To run the test-suite, inside the py-bundler directory:
+To run the test-suite, inside the pybundler directory:
 
 ```shell
 $ pytest -vv test/
 ```
+
+## Release History
+
+* 0.2.0
+    * CHANGE: New name of the project, `pybundler` instead of `py-bundler`
+* 0.1.1
+    * FIX: README.md fixed, `text/markdown` instead of `text/markadown`
+* 0.1.0
+    * The first proper release
+    * ADD: Add cli module
+* 0.0.1
+    * Work in progress
 
 ## Meta
 
@@ -141,7 +153,7 @@ Daniel Omar Vergara Pérez – [@dan1_net](https://twitter.com/dan1_net) – dan
 
 ## Contributing
 
-1. Fork it (<https://gitlab.com/hexagondata_projects/py-bundler>)
+1. Fork it (<https://gitlab.com/hexagondata_projects/pybundler>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
