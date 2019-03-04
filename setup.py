@@ -5,10 +5,10 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setup(
     name='py-bundler',
-    version='0.1.0',
+    version='0.1.1',
     description='Create or manage a python app or package',
     long_description=long_description,
-    long_description_content_type='text/markadown',
+    long_description_content_type='text/markdown',
     author='Daniel Omar Vergara Pérez',
     author_email='daniel.omar.vergara@gmail.com',
     url='https://github.com/dany2691/py-bundler',
