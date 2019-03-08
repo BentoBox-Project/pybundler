@@ -1,6 +1,8 @@
 # Pybundler
 > Manages python applicatons or packages.
 
+[![PyPI version](https://badge.fury.io/py/pybundler.svg)](https://badge.fury.io/py/pybundler)
+
 Create a basic template of python package and manage python apps or packages.
 The purpose of this tool is offer a similar experience with ruby's bundler.
 This package is based on [pypkg-generator](https://pypi.org/project/pypkg-generator/) and [pipenv](https://pypi.org/project/pipenv/).
@@ -46,7 +48,8 @@ Options:
   -r, --release         Uploads the package to pypi.org andpushes it to the
                         git remote
   -p, --package         Creates a new python package from scratch
-  --help                Show this message and exit
+  -v, --version         Shows the current version of the package
+  --help                Show this message and exit.
 ```
 
 The purpose of this tool is offer a similar experience with ruby's bundler. So you can create a new package from scratch.
@@ -95,6 +98,12 @@ The following option spawns a shell within the virtualenv:
 $ pybundler --shell
 ```
 
+To see the current version installed in the system:
+
+```sh
+$ pybundler --version
+```
+
 In order to automate the publishing of the new package, we provide the next options for building and uploading the package to pypi and the remote git service.
 
 This is a replacement for **python setup.py sdist bdist_wheel**
@@ -135,6 +144,8 @@ $ pytest -vv test/
 
 ## Release History
 
+* 0.3.0
+    * ADD: Add --version flag to the options
 * 0.2.1
     * FIX: Fix the Documentation
 * 0.2.0

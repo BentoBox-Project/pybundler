@@ -6,18 +6,20 @@ environment you are running this script in.
 
 This file contains the following functions:
 
-    * conduct_option - Returns the conduct file option
-    * license_option - Returns the license file option
-    * pipfile_option - Returns the pipfile file option
-    * main - the main function of the script
-
+    * conduct_option              - Returns the conduct file option
+    * license_option              - Returns the license file option
+    * pipfile_option              - Returns the pipfile file option
+    * enter_name                  - Ask for the name of the new package
+    * enter_path                  - Ask for the path of the new project
+    * install_pytest_confirmation - Ask if pytest should be installed
+    * main                        - the main function of the script
 """
 import os
 
 import click
 from colored import fg, attr
 
-from pybundler import cli
+from pybundler import cli, __version__
 
 
 @click.command()
@@ -42,8 +44,10 @@ from pybundler import cli
                    'pushes it to the git remote')
 @click.option('--package', '-p', is_flag=True,
               help='Creates a new python package from scratch')
+@click.option('--version', '-v', is_flag=True,
+              help='Shows the current version of the package')
 def main(install_all, install, uninstall, dev, lock, shell,
-         build_wheel, test_release, release, package):
+         build_wheel, test_release, release, package, version):
     """Executes the entire program
 
     Parameters \n
@@ -68,6 +72,8 @@ def main(install_all, install, uninstall, dev, lock, shell,
         Uploads the package to pypi.org and pushes it to the git remote\n
     package : bool\n
         Creates a new python package from scratch\n
+    version : bool\n
+        Shows the current version of the package
     """
     if install_all:
         cli.install_all(dev)
@@ -107,6 +113,9 @@ def main(install_all, install, uninstall, dev, lock, shell,
 
         if pytest:
             cli.install_pytest(os.path.join(path, pkg_name))
+
+    if version:
+        print(f'pybundler, version {__version__}')
 
 
 def conduct_option():
