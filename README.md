@@ -1,7 +1,7 @@
 # Pybundler
-> Manages a ptyhon applicatons or packages.
+> Manages python applicatons or packages.
 
-Creates a basic template of python package and manages python apps or packages.
+Create a basic template of python package and manage python apps or packages.
 The purpose of this tool is offer a similar experience with ruby's bundler.
 This package is based on [pypkg-generator](https://pypi.org/project/pypkg-generator/) and [pipenv](https://pypi.org/project/pipenv/).
 
@@ -135,6 +135,8 @@ $ pytest -vv test/
 
 ## Release History
 
+* 0.2.1
+    * FIX: Fix the Documentation
 * 0.2.0
     * CHANGE: New name of the project, `pybundler` instead of `py-bundler`
 * 0.1.1
