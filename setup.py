@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setup(
     name='pybundler',
-    version='0.3.0',
+    version='0.3.1',
     description='Create or manage a python app or package',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -16,7 +16,7 @@ setup(
     install_requires=[
         'click>=7.0.0',
         'colored>=1.3.93',
-        'pypkg-generator>=0.4.1',
+        'pypkg-generator>=0.4.3',
         'pipenv>=2018.11.26',
         'twine>=1.13.0'
     ],
