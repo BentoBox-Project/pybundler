@@ -1,8 +1,10 @@
-# Pybundler
-> Manages python applicatons or packages.
+Pybundler
+==========================
 
 [![PyPI version](https://badge.fury.io/py/pybundler.svg)](https://badge.fury.io/py/pybundler)
 [![CircleCI](https://circleci.com/gh/dany2691/pybundler.svg?style=svg)](https://circleci.com/gh/dany2691/pybundler)
+
+> Manages python applicatons or packages.
 
 Create a basic template of python package and manage python apps or packages.
 The purpose of this tool is offer a similar experience with ruby's bundler.
@@ -167,7 +169,7 @@ Daniel Omar Vergara Pérez – [@dan1_net](https://twitter.com/dan1_net) – dan
 
 ## Contributing
 
-1. Fork it (<https://gitlab.com/hexagondata_projects/pybundler>)
+1. Fork it (<https://github.com/dany2691/pybundler>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
