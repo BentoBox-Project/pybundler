@@ -140,7 +140,8 @@ def enter_name():
 
 def enter_path():
     """Ask for the path of the new project"""
-    return f'{fg(2)}Enter the path of the project (default: current dir){attr(0)}'
+    default_path = '(default: current dir)'
+    return f'{fg(2)}Enter the path of the project {default_path}{attr(0)}'
 
 
 def install_pytest_confirmation():
