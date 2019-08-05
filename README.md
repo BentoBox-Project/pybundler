@@ -2,6 +2,7 @@
 > Manages python applicatons or packages.
 
 [![PyPI version](https://badge.fury.io/py/pybundler.svg)](https://badge.fury.io/py/pybundler)
+[![CircleCI](https://circleci.com/gh/dany2691/pybundler.svg?style=svg)](https://circleci.com/gh/dany2691/pybundler)
 
 Create a basic template of python package and manage python apps or packages.
 The purpose of this tool is offer a similar experience with ruby's bundler.
