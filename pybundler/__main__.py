@@ -112,7 +112,8 @@ def main(install_all, install, uninstall, dev, lock, shell,
         cli.create_pkg(args)
 
         if pytest:
-            cli.install_pytest(os.path.join(path, pkg_name))
+            pytest_version = click.prompt(enter_pytest_version())
+            cli.install_pytest(os.path.join(path, pkg_name), pytest_version)
 
     if version:
         print(f'pybundler, version {__version__}')
@@ -135,18 +136,23 @@ def pipfile_option():
 
 def enter_name():
     """Ask for the name of the new package"""
-    return f'{fg(2)} Please, enter the nanme of the package: {attr(0)}'
+    return f'{fg(2)} Please, enter the name of the package: {attr(0)}'
 
 
 def enter_path():
     """Ask for the path of the new project"""
     default_path = '(default: current dir)'
-    return f'{fg(2)}Enter the path of the project {default_path}{attr(0)}'
+    return f'{fg(2)} Enter the path of the project {default_path}{attr(0)}'
 
 
 def install_pytest_confirmation():
     """Ask if pytest should be installed"""
     return f'{fg(2)} Do you want to install pytest? {attr(0)}'
+
+
+def enter_pytest_version():
+    """Ask for the desired version for pytest"""
+    return f'{fg(2)} Enter the desired pytest version {attr(0)}'
 
 
 if __name__ == '__main__':
