@@ -14,11 +14,11 @@ setup(
     url='https://github.com/dany2691/pybundler',
     packages=find_packages(exclude=('tests',)),
     install_requires=[
-        'click>=7.0.0',
-        'colored>=1.3.93',
-        'pypkg-generator>=0.4.3',
-        'pipenv>=2018.11.26',
-        'twine>=1.13.0'
+        'click',
+        'colored',
+        'pypkg-generator',
+        'pipenv',
+        'twine'
     ],
     license='MIT',
     classifiers=[
