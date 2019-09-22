@@ -1,11 +1,29 @@
+from os import environ as env
 from setuptools import find_packages, setup
+from setuptools.command.install import install
+import sys
+
+VERSION = '0.3.1'
+
 
 with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
+
+class VerifyVersionCommand(install):
+    """Custom command to verify that the git tag matches our version"""
+    description = 'verify that the git tag matches our version'
+
+    def run(self):
+        tag = env .get('PYBUNDLER_TAG')
+        if tag != VERSION:
+            info = f"Git tag: {tag} doesn't match with this version: {VERSION}"
+            sys.exit(info)
+
+
 setup(
     name='pybundler',
-    version='0.3.1',
+    version=VERSION,
     description='Create or manage a python app or package',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -35,5 +53,6 @@ setup(
         'console_scripts': [
             'pybundler=pybundler.__main__:main'
         ]
-    }
+    },
+    cmdclass={'verify': VerifyVersionCommand}
 )
