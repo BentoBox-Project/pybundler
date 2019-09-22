@@ -88,13 +88,16 @@ workflows:
   version: 2
   build_accept_deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
       - deploy_test:
           requires:
             - build
           filters:
             tags:
-              only: /[0-9]+(\.[0-9]+)*/
+              only: /^v.*/
             branches:
               ignore: /.*/
       - hold:
@@ -106,6 +109,6 @@ workflows:
             - hold
           filters:
             tags:
-              only: /[0-9]+(\.[0-9]+)*/
+              only: /^v.*/
             branches:
               ignore: /.*/
