@@ -103,7 +103,12 @@ workflows:
       - hold:
           type: approval
           requires:
-          - deploy_test
+            - deploy_test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
       - deploy:
           requires:
             - hold
