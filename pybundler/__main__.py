@@ -112,7 +112,7 @@ def main(install_all, install, uninstall, dev, lock, shell,
         cli.create_pkg(args)
 
         if pytest:
-            pytest_version = click.prompt(enter_pytest_version())
+            pytest_version = click.prompt(enter_pytest_version(), default='')
             cli.install_pytest(os.path.join(path, pkg_name), pytest_version)
 
     if version:
@@ -152,7 +152,8 @@ def install_pytest_confirmation():
 
 def enter_pytest_version():
     """Ask for the desired version for pytest"""
-    return f'{fg(2)} Enter the desired pytest version {attr(0)}'
+    message = "(Default: Press enter to always install the latest version)"
+    return f'{fg(2)} Enter the desired pytest version {message} {attr(0)}'
 
 
 if __name__ == '__main__':
