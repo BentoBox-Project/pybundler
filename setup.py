@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 from setuptools.command.install import install
 import sys
 
-VERSION = '0.3.2'
+VERSION = '0.3.3'
 
 
 with open('README.md', 'r', encoding='utf-8') as fh:
