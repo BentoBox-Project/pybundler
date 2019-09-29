@@ -106,10 +106,11 @@ def release(remote=True):
 
 def install_pytest(pkg_dir=None, version=None):
     """ Installs pytest in a pinned version"""
-    if version is not None:
+    if version:
         command = ['pipenv', 'install', f'pytest=={version}', '--dev']
     else:
         command = ['pipenv', 'install', 'pytest', '--dev']
+
     result = subprocess.run(command, cwd=pkg_dir)
     return result.returncode
 
