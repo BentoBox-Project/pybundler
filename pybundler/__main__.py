@@ -104,16 +104,28 @@ def main(install_all, install, uninstall, dev, lock, shell,
         path = click.prompt(enter_path(), default='')
         license_file = click.confirm(license_option())
         conduct_file = click.confirm(conduct_option())
-        pipfile = click.confirm(pipfile_option())
+        create_pipenv_env = click.confirm(ask_for_pipenv_env())
         pytest = click.confirm(install_pytest_confirmation())
         args = {'name': pkg_name, 'path': path, 'tests': True,
                 'license': license_file, 'code_of_conduct': conduct_file,
-                'pipfile': pipfile}
+                'pipfile': False}
         cli.create_pkg(args)
 
-        if pytest:
-            pytest_version = click.prompt(enter_pytest_version(), default='')
-            cli.install_pytest(os.path.join(path, pkg_name), pytest_version)
+        if create_pipenv_env:
+            python_version = click.prompt(ask_for_python_version(), default="")
+            cli.install_python_version(
+                pkg_dir=os.path.join(path, pkg_name),
+                version=python_version
+            )
+            if pytest:
+                pytest_version = click.prompt(
+                    enter_pytest_version(),
+                    default=''
+                )
+                cli.install_pytest(
+                    os.path.join(path, pkg_name),
+                    pytest_version
+                )
 
     if version:
         print(f'pybundler, version {__version__}')
@@ -152,8 +164,25 @@ def install_pytest_confirmation():
 
 def enter_pytest_version():
     """Ask for the desired version for pytest"""
-    message = "(Default: Press enter to always install the latest version)"
+    message = "(default: Press enter to always install the latest version)"
     return f'{fg(2)} Enter the desired pytest version {message} {attr(0)}'
+
+
+def ask_for_pipenv_env():
+    """Ask the user if he wants to create a virtual environment"""
+    question = "Do you want to create a pipenv virtual environment?"
+    return f"{fg(2)} {question} {attr(0)}"
+
+
+def ask_for_python_version():
+    """
+    Ask the user for the python version.
+    Default: The last version installed
+    """
+    pyenv_clarification = "(previously installed by pyenv)"
+    question = f"Which python version do you need {pyenv_clarification}?"
+    default = "(default: the latest python version in the system)"
+    return f"{fg(2)} {question} {default} {attr(0)}"
 
 
 if __name__ == '__main__':
