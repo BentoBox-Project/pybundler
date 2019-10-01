@@ -115,6 +115,17 @@ def install_pytest(pkg_dir=None, version=None):
     return result.returncode
 
 
+def install_python_version(pkg_dir=None, version='',
+                           runner=subprocess.run):
+    """Intalls a given python version into a virtual env"""
+    if version:
+        command = ["pipenv", "--python", version]
+    else:
+        command = ["pipenv", "install"]
+    result = runner(command, cwd=pkg_dir)
+    return result.returncode
+
+
 def create_pkg(args):
     """ Creates a new python package from scratch
     Parameters
