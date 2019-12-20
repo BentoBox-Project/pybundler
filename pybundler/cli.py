@@ -8,64 +8,6 @@ import subprocess
 from pypkg_generator import package_generator
 
 
-def install(dependency='', dev=False):
-    """
-    Installs a given python dependency,
-    and adds them to Pipfile
-
-    Parameters
-    ----------
-    dependency : str
-       The python dependecy to install
-
-    dev : bool
-        If the python dependency is used during develoment
-    """
-    result = subprocess.run(['pipenv', 'install',
-                             dependency, '--dev' if dev else ''],
-                            cwd=os.getcwd())
-    return result.returncode
-
-
-def install_all(dev=False):
-    """ Installs all packages from Pipfile
-    (including dev dependencies if dev is provided)
-    Parameters
-    ----------
-    dev : bool
-        If dev is provided, install the dev dependencies
-    """
-    result = subprocess.run(['pipenv', 'install', '--dev' if dev else ''],
-                            cwd=os.getcwd())
-    return result.returncode
-
-
-def uninstall(dependency=''):
-    """ Uninstalls a python depdency
-    Parameters
-    ----------
-    dependecy : str
-        The python depdency to uninstall from the current virtual env
-    """
-    result = subprocess.run(['pipenv', 'uninstall', dependency],
-                            cwd=os.getcwd())
-    return result.returncode
-
-
-def lock():
-    """ Creates or updates the Pipfile.lock
-    """
-    result = subprocess.run(['pipenv', 'lock'], cwd=os.getcwd())
-    return result.returncode
-
-
-def shell():
-    """ Spawns a shell within the virtualenv
-    """
-    result = subprocess.run(['pipenv', 'shell'], cwd=os.getcwd())
-    return result.returncode
-
-
 def build_source_wheel(version=3):
     """ Creates a source archive and a wheel for your package
     Parameters
