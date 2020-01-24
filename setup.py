@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 from setuptools.command.install import install
 import sys
 
-VERSION = '0.4.0'
+VERSION = '1.0.0a1'
 
 
 with open('README.md', 'r', encoding='utf-8') as fh:
@@ -15,7 +15,7 @@ class VerifyVersionCommand(install):
     description = 'verify that the git tag matches our version'
 
     def run(self):
-        tag = env .get('PYBUNDLER_TAG')
+        tag = env.get('PYBUNDLER_TAG')
         if tag != VERSION:
             info = f"Git tag: {tag} doesn't match with this version: {VERSION}"
             sys.exit(info)
